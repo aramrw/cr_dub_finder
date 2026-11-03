@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Crunchyroll Dub Finder",
+  "version": "1.0.0",
+  "description": "Finds anime with specific audio dubs on Crunchyroll using internal API versions metadata.",
+  "permissions": [
+    "webRequest",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.crunchyroll.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.crunchyroll.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Crunchyroll Dub Finder"
+  }
+}
